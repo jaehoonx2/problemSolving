@@ -13,12 +13,13 @@ class Solution {
         while(!isPrime(n)){
             if(n % divisor == 0){
                 n = n / divisor;
-                
-                if(!set.contains(divisor))
-                    set.add(divisor);
+                set.add(divisor);
             } else
                 divisor = getNextPrime(divisor);
         }
+        
+        // 2-1. while을 탈출하는 조건은 소수로 나눈 값이 소수일 경우이므로, 그 소수도 set에 넣기
+        set.add(n);
         
         // 3. Set<Integer> → int[] 변환하여 반환 
         Integer[] arr1 = set.toArray(new Integer[0]);
@@ -26,6 +27,8 @@ class Solution {
         
         for(int j = 0; j < arr2.length; j++)
             arr2[j] = arr1[j];
+        
+        Arrays.sort(arr2);
         
         return arr2;
     }
