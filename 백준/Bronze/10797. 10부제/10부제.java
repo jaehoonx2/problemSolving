@@ -1,0 +1,16 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int day = sc.nextInt();
+        int cnt = 0;
+        while(sc.hasNext()){
+            int num = sc.nextInt();
+            cnt += day == num ? 1 : 0; 
+        }
+        System.out.println(cnt);        
+    }
+}
